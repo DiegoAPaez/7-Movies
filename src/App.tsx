@@ -7,11 +7,11 @@ const queryClient = new QueryClient();
 
 export const App = () => {
     return (
-        <BrowserRouter>
-            <QueryClientProvider client={queryClient}>
-                 <AppRouter />
-                <ReactQueryDevtools />
-            </QueryClientProvider>
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+                <AppRouter />
+                <ReactQueryDevtools initialIsOpen={false} />
+            </BrowserRouter>
+        </QueryClientProvider>
     );
 };
