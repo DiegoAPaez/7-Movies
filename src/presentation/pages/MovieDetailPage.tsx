@@ -1,14 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useMovie } from "../../hooks/useMovies";
 
 export const MovieDetailPage = () => {
     const { id } = useParams<{ id: string }>();
     const movieId = Number(id);
 
+    const navigate = useNavigate();
+
     const { data: movie, isLoading, isError, error } = useMovie(movieId);
     if (isLoading)
         return (
-            <h1 className="text-2xl text-sky-900 font-bold text-center my-10">
+            <h1 className="text-2xl text-sky-900 font-bold text-center my-10 h-screen">
                 Loading movie details...
             </h1>
         );
@@ -20,8 +22,18 @@ export const MovieDetailPage = () => {
             </h1>
         );
 
+    const handleGoBack = () => {
+        void navigate(-1);
+    };
+
     return (
         <div className="relative">
+            <button
+                onClick={handleGoBack}
+                className="absolute top-5 right-5 z-20 bg-sky-950 text-white font-bold py-2 px-4 rounded-lg hover:cursor-pointer hover:bg-sky-700 transition-colors duration-300"
+            >
+                ⬅️ Back to list
+            </button>
             <div>
                 <img
                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
