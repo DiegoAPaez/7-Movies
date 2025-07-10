@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NavBar } from "./NavBar.tsx";
 
 export const Header = () => {
@@ -8,13 +9,14 @@ export const Header = () => {
             }
         >
             <div className={"flex items-center gap-6"}>
-                <h1
+                <Link
+                    to={"/"}
                     className={
                         "font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400"
                     }
                 >
                     MovieDB
-                </h1>
+                </Link>
                 <NavBar />
             </div>
             <div>

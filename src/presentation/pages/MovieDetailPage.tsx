@@ -10,9 +10,17 @@ export const MovieDetailPage = () => {
     const { data: movie, isLoading, isError, error } = useMovie(movieId);
     if (isLoading)
         return (
-            <h1 className="text-2xl text-sky-900 font-bold text-center my-10 h-screen">
-                Loading movie details...
-            </h1>
+            <div
+                className={"flex flex-col items-center justify-center h-screen"}
+            >
+                <h1
+                    className={
+                        "text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-tl from-sky-800 to-sky-400 text-center"
+                    }
+                >
+                    Loading details...
+                </h1>
+            </div>
         );
     if (isError) return <pre>Error: {error.message}</pre>;
     if (!movie)

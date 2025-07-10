@@ -10,9 +10,17 @@ export const MoviesPage = () => {
 
     if (isLoading) {
         return (
-            <h1 className="text-2xl text-sky-900 font-bold text-center my-10">
-                Loading list...
-            </h1>
+            <div
+                className={"flex flex-col items-center justify-center h-screen"}
+            >
+                <h1
+                    className={
+                        "text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-tl from-sky-800 to-sky-400 text-center"
+                    }
+                >
+                    Loading list...
+                </h1>
+            </div>
         );
     }
     if (isError) {
@@ -35,7 +43,11 @@ export const MoviesPage = () => {
 
     return (
         <div className="container mx-auto p-6">
-            <h1 className={"text-2xl font-bold text-sky-900 text-center mb-6"}>
+            <h1
+                className={
+                    "text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-tl from-sky-800 to-sky-400 text-center mb-6"
+                }
+            >
                 Popular Movies
             </h1>
             {isFetching && <div>Loading results...</div>}
