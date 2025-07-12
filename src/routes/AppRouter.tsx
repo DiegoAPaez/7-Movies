@@ -6,6 +6,7 @@ import { MovieDetailPage } from "../presentation/pages/MovieDetailPage.tsx";
 import { Footer } from "../presentation/components/Footer.tsx";
 import { LoginPage } from "../auth/pages/LoginPage.tsx";
 import { RegisterPage } from "../auth/pages/RegisterPage.tsx";
+import { ProtectedRoute } from "./ProtectedRoute.tsx";
 
 export const AppRouter = () => {
     return (
@@ -13,12 +14,15 @@ export const AppRouter = () => {
             <Header />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route
-                    path="/movies"
-                    element={<Navigate to={"/movies/page/1"} />}
-                />
-                <Route path="/movies/page/:page" element={<MoviesPage />} />
-                <Route path="/movies/:id" element={<MovieDetailPage />} />
+
+                <Route element={<ProtectedRoute />}>
+                    <Route
+                        path="/movies"
+                        element={<Navigate to={"/movies/page/1"} />}
+                    />
+                    <Route path="/movies/page/:page" element={<MoviesPage />} />
+                    <Route path="/movies/:id" element={<MovieDetailPage />} />
+                </Route>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="*" element={<div>404 - Not Found</div>} />
