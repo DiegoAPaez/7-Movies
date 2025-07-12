@@ -35,7 +35,7 @@ export const MovieDetailPage = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative h-screen">
             <button
                 onClick={handleGoBack}
                 className="absolute top-5 right-5 z-20 bg-sky-950 text-white font-bold py-2 px-4 rounded-lg hover:cursor-pointer hover:bg-sky-700 transition-colors duration-300"
@@ -48,7 +48,7 @@ export const MovieDetailPage = () => {
                     alt={movie.title}
                     className="w-full h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 bg-black/75"></div>
+                <div className="absolute inset-0 h-[500px] bg-black/75"></div>
             </div>
             <div className="absolute top-0 left-0 right-0 w-full h-[500px]">
                 <div className="max-w-11/12 flex flex-col lg:flex-row items-center my-12 mx-auto">
