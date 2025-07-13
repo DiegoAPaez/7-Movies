@@ -4,7 +4,7 @@ import type { Movie, MoviesResponse } from "../../utils/types";
 const BEARER_TOKEN: string = import.meta.env.VITE_BEARER_TOKEN as string;
 const API_URL: string = import.meta.env.VITE_MOVIES_API_URL as string;
 
-const moviesApi = axios.create({
+export const moviesApi = axios.create({
     baseURL: API_URL,
     headers: {
         accept: "application/json",

@@ -16,7 +16,20 @@ export interface Movie {
     genres: Genre[];
 }
 
-interface Genre {
+export interface Genre {
     id: number;
     name: string;
+}
+
+export interface Cast {
+    id: number;
+    name: string;
+    character: string;
+    profile_path: string | null;
+}
+
+export interface CastResponse {
+    data: {
+        cast: Cast[];
+    };
 }
