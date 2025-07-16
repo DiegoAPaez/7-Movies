@@ -32,9 +32,11 @@ export const MovieCarousel = ({ id }: { id: number }) => {
     const movies = moviesResponse?.data.cast ?? [];
 
     return (
-        <div className="flex flex-row gap-4 h-[400px] py-5 flex-nowrap overflow-y-hidden">
+        <div className="flex flex-row gap-4 pb-2">
             {movies.map((movie) => (
-                <MovieCard movie={movie} />
+                <div key={movie.id} className="flex-shrink-0">
+                    <MovieCard movie={movie} />
+                </div>
             ))}
         </div>
     );
