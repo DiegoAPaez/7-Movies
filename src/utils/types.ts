@@ -33,3 +33,21 @@ export interface CastResponse {
         cast: Cast[];
     };
 }
+
+export interface Person {
+    biography: string;
+    birthday: string;
+    name: string;
+    place_of_birth: string;
+    profile_path: string | null;
+}
+
+export interface PersonResponse {
+    data: Person;
+}
+
+export interface CreditsResponse {
+    data: {
+        cast: Movie[];
+    };
+}

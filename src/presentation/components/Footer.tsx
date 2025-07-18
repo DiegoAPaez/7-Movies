@@ -1,20 +1,32 @@
 import { Link } from "react-router-dom";
+import { useAuthUserQuery } from "../../auth/query/authQueries";
 
 export const Footer = () => {
+    const { data: user } = useAuthUserQuery();
+
     return (
         <footer
             className={
                 "bg-sky-950 p-6 text-white flex justify-center items-start gap-10"
             }
         >
-            <div className={"flex items-center gap-6"}>
+            <div className={"flex flex-col items-end gap-6"}>
                 <h2
                     className={
-                        "font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400"
+                        "text-right font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400"
                     }
                 >
                     MovieDB
                 </h2>
+                {user && (
+                    <p
+                        className={
+                            "text-md font-bold bg-white py-4 px-6 rounded-lg text-sky-400 hover:cursor-pointer "
+                        }
+                    >
+                        Hi {user.email}!
+                    </p>
+                )}
             </div>
             <div className={"flex items-start justify-center gap-10"}>
                 <div className={"text-white flex flex-col gap-2"}>
